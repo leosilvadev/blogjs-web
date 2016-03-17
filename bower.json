@@ -1,0 +1,23 @@
+{
+  "name": "blogjs-web",
+  "description": "",
+  "main": "index.js",
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "static/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#^1.5.1",
+    "angular-bootstrap": "^1.2.4",
+    "bootstrap": "^3.3.6",
+    "angular-route": "^1.5.1"
+  }
+}

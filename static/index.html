@@ -1,0 +1,48 @@
+<DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="libs/bootstrap/dist/css/bootstrap.min.css">
+  </head>
+
+  <body ng-app="blogjs">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-7" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">BlogJS</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-7">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="#usuario/cadastro">Cadastre-se</a>
+            </li>
+              <li>
+                <a href="#login">Login</a>
+              </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div ng-view class="container">
+      <h1>Bem vindo ao BlogJS!</h1>
+    </div>
+
+    <script src="libs/jquery/dist/jquery.min.js"></script>
+    <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/angular-route/angular-route.min.js"></script>
+    <script src="libs/angular-bootstrap/ui-bootstrap.min.js"></script>
+
+    <script src="modulos/modulo.js"></script>
+    <script src="modulos/usuario/modulo.js"></script>
+    <script src="modulos/usuario/cadastro/service.js"></script>
+    <script src="modulos/usuario/cadastro/controller.js"></script>
+    <script src="modulos/usuario/login/controller.js"></script>
+  </body>
+</html>
