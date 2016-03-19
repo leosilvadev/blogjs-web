@@ -12,8 +12,6 @@ angular.module('blogjs.usuario').controller('CadastroUsuarioController', functio
     }
   };
 
-
-
   var valido = function(usuario){
     return usuario.nome && usuario.login && usuario.senha;
   };

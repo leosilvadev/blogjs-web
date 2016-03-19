@@ -17,9 +17,17 @@ angular.module('blogjs.usuario').factory('usuarios', function(){
     return encontrado;
   };
 
+  var buscar = function(id){
+    var encontrado = usuarios.find(function(obj){
+      return obj.id === id;
+    });
+    return encontrado;
+  };
+
   return {
     cadastrar:cadastrar,
-    autenticar:autenticar
+    autenticar:autenticar,
+    buscar:buscar
   }
 
 });
