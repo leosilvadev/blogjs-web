@@ -1,16 +1,20 @@
 <div class="panel panel-primary">
   <div class="panel-heading">Todos os posts</div>
   <div class="panel-body">
-    <div class="row" ng-repeat="post in posts">
-      <div class="col-sm-4">
-        {{usuario.nome}}
-      </div>
-      <div class="col-sm-4">
-        {{post.titulo}}
-      </div>
-      <div class="col-sm-4">
-        {{post.dataRegistro | date:'dd/MM/yyyy hh:mm:ss'}}
-      </div>
+    <div ng-repeat="post in posts">
+      <div class="row post-item">
+        <a ng-href="#/usuarios/{{usuario.id}}/posts/{{post.id}}">
+          <div class="col-sm-4">
+            {{usuario.nome}}
+          </div>
+          <div class="col-sm-4">
+            {{post.titulo}}
+          </div>
+          <div class="col-sm-4">
+            {{post.dataRegistro | date:'dd/MM/yyyy hh:mm:ss'}}
+          </div>
+        </div>
+      </a>
     </div>
   </div>
   <div class="panel-footer">

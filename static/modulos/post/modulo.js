@@ -11,6 +11,11 @@ angular.module('blogjs.post').config(function($routeProvider){
     .when('/usuarios/:id/posts/novo', {
       controller: 'RegistroPostController',
       templateUrl: 'modulos/post/cadastro/view.html'
+    })
+
+    .when('/usuarios/:id/posts/:postId', {
+      controller: 'VisualizacaoPostController',
+      templateUrl: 'modulos/post/visualizacao/view.html'
     });
 
 });

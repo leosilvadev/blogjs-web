@@ -1,0 +1,9 @@
+div.post-item{
+  padding: 15px;
+  font-size: 1.2em;
+}
+
+div.post-item:HOVER {
+  cursor: pointer;
+  background-color: #F4F9F9;
+}

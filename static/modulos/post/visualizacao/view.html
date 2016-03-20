@@ -1,0 +1,14 @@
+<div class="panel panel-primary">
+  <div class="panel-heading" ng-bind="post.titulo"></div>
+  <div class="panel-body">
+    <div ng-bind="post.conteudo"></div>
+  </div>
+  <div class="panel-footer">
+    <div ng-bind="post.dataRegistro | date:'dd/MM/yyyy hh:mm:ss'"></div>
+  </div>
+  <div class="panel-footer">
+    <a ng-href="#usuarios/{{usuario.id}}/posts" class="btn btn-default">
+      Ver outros posts
+    </a>
+  </div>
+</div>
