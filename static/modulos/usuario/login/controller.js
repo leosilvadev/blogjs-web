@@ -3,15 +3,16 @@ angular.module('blogjs.usuario').controller('LoginController', function($rootSco
   $scope.usuario = {};
 
   $scope.entrar = function(usuario){
-    var usuarioAutenticado = usuarios.autenticar(usuario);
-    if (usuarioAutenticado) {
-      console.log('Enviando evento: usuario entrou');
+    var promise = usuarios.autenticar(usuario.login, usuario.senha);
+    promise.then(function(response){
+      var usuarioAutenticado = response.data;
+      localStorage.setItem('usuarioLogado', JSON.stringify(usuarioAutenticado));
       $rootScope.$broadcast('usuario.entrou', usuarioAutenticado);
-
-    } else {
+    });
+    promise.catch(function(err){
       $scope.usuario = {};
       alert('Dados incorretos!');
-    }
+    });
   }
 
 });
