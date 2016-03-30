@@ -19,7 +19,7 @@ angular.module('blogjs').controller('MenuController', function($scope, $location
     console.log('Recebendo evento: usuario entrou, ');
     console.log(usuario);
     $scope.usuarioLogado = usuario;
-    $location.path('usuarios/'+usuario.id+'/posts');
+    $location.path('usuarios/'+usuario._id+'/posts');
   });
 
   $scope.$on('usuario.saiu', function(evento, usuario){

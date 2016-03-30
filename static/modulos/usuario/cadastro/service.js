@@ -15,10 +15,7 @@ angular.module('blogjs.usuario').factory('usuarios', function($http){
   };
 
   var buscar = function(id){
-    var encontrado = getUsuarios().find(function(obj){
-      return obj.id === id;
-    });
-    return encontrado;
+    return $http.get('http://localhost:9000/v1/usuarios/'+id);
   };
 
   var sair = function(){

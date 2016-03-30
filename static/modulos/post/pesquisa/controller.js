@@ -1,11 +1,17 @@
-angular.module('blogjs.post').controller('PesquisaPostController', function($scope, posts, $routeParams, usuarios){
+angular.module('blogjs.post').controller('PesquisaPostController', function($scope, posts, $routeParams, $location, usuarios){
 
   var carregarPosts = function(){
     $scope.posts = posts.listar();
   }
 
   var carregarUsuario = function(){
-    $scope.usuario = usuarios.buscar(parseInt($routeParams.id));
+    var promise = usuarios.buscar($routeParams.id);
+    promise.then(function(resultado){
+      $scope.usuario = resultado.data;
+    });
+    promise.catch(function(err){
+        $location.path('/login');
+    });
   }
 
   carregarPosts();
