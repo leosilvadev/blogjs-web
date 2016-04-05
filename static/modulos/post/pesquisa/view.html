@@ -24,4 +24,23 @@
       </a>
     </div>
   </div>
+  <div class="panel-body">
+      <nav>
+          <ul class="pagination">
+            <li>
+              <a ng-click="carregaPagina(paginaAtual-1)" aria-label="Anterior">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li ng-repeat="p in montarPaginas(totalPaginas) track by $index" ng-class="{active: $index+1==paginaAtual}">
+                <a ng-click="carregaPagina($index+1)">{{$index+1}}</a>
+            </li>
+            <li>
+              <a ng-click="carregaPagina(paginaAtual+1)" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+  </div>
 </div>

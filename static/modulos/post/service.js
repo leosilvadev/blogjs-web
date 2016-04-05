@@ -13,8 +13,15 @@ angular.module('blogjs.post').factory('posts', function($http){
     return $http.get('http://localhost:9000/v1/usuarios/'+usuarioId+'/posts');
   };
 
-  var listarTodos = function(titulo){
-    var url = titulo ? 'http://localhost:9000/v1/posts?titulo='+titulo : 'http://localhost:9000/v1/posts'
+  var listarTodos = function(titulo, pagina){
+    var pagina = pagina || 1;
+    var url
+
+    if(titulo){
+        url = 'http://localhost:9000/v1/posts?pagina='+pagina+'&titulo='+titulo
+    } else {
+        url = 'http://localhost:9000/v1/posts?pagina='+pagina
+    }
     return $http.get(url);
   };
 
