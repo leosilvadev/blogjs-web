@@ -3,9 +3,14 @@ angular.module('blogjs.post', []);
 angular.module('blogjs.post').config(function($routeProvider){
 
   $routeProvider
+    .when('/posts', {
+        controller: 'PesquisaPostController',
+        templateUrl: 'modulos/post/pesquisa/view.html'
+    })
+
     .when('/usuarios/:id/posts', {
-      controller: 'PesquisaPostController',
-      templateUrl: 'modulos/post/pesquisa/view.html'
+      controller: 'PesquisaUsuarioPostController',
+      templateUrl: 'modulos/post/pesquisa_usuario/view.html'
     })
 
     .when('/usuarios/:id/posts/novo', {

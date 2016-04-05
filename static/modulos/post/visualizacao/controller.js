@@ -2,15 +2,21 @@ angular.module('blogjs.post')
   .controller('VisualizacaoPostController', function($scope, $routeParams, posts, usuarios){
 
   var carregarPost = function(){
-    var postId = parseInt($routeParams.postId);
-    return posts.buscar(postId);
+      var usuarioId = $routeParams.id;
+      var postId = $routeParams.postId;
+      var promise = posts.buscarPorUsuario(usuarioId, postId);
+      promise.then(function(resultado){
+          $scope.post = resultado.data;
+      });
+      promise.catch(function(erro){
+         alert(erro);
+      });
   }
 
   var carregarUsuario = function(){
     return usuarios.buscar($routeParams.id);
   }
 
-  $scope.usuario = carregarUsuario();
-  $scope.post = carregarPost();
+  carregarPost();
 
 });

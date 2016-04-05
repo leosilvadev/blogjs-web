@@ -18,6 +18,11 @@
           <a class="navbar-brand" href="#">BlogJS</a>
         </div>
         <div class="collapse navbar-collapse" ng-controller="MenuController">
+          <ul class="nav navbar-nav">
+            <li>
+                <a href="#posts">Procurar posts</a>
+            </li>
+          </ul>
           <ul class="nav navbar-nav" ng-hide="usuarioLogado">
             <li>
               <a href="#usuario/cadastro">Cadastre-se</a>
@@ -29,7 +34,7 @@
 
           <ul class="nav navbar-nav" ng-show="usuarioLogado">
             <li>
-              <a ng-href="#/usuarios/{{usuarioLogado.id}}/posts">Meus posts</a>
+              <a ng-href="#/usuarios/{{usuarioLogado._id}}/posts">Meus posts</a>
             </li>
             <li>
               <a ng-click="sair()">Sair</a>
@@ -58,7 +63,8 @@
     <script src="modulos/post/modulo.js"></script>
     <script src="modulos/menuController.js"></script>
     <script src="modulos/post/pesquisa/controller.js"></script>
-    <script src="modulos/post/pesquisa/service.js"></script>
+    <script src="modulos/post/pesquisa_usuario/controller.js"></script>
+    <script src="modulos/post/service.js"></script>
     <script src="modulos/post/cadastro/controller.js"></script>
     <script src="modulos/post/visualizacao/controller.js"></script>
   </body>
