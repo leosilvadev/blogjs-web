@@ -1,7 +1,7 @@
 angular.module('blogjs.post').controller('PesquisaPostController', function($scope, posts, $routeParams, $location, usuarios){
 
   var carregarPosts = function(){
-    var promise = posts.listarTodos();
+    var promise = posts.listarTodos($scope.filtro);
     promise.then(function(resultado){
         $scope.posts = resultado.data;
     });
@@ -10,6 +10,10 @@ angular.module('blogjs.post').controller('PesquisaPostController', function($sco
     });
   }
 
+  $scope.atualizarPosts = function(){
+      carregarPosts();
+  }
+
   carregarPosts();
-  
+
 });

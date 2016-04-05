@@ -1,5 +1,15 @@
 <div class="panel panel-primary">
-  <div class="panel-heading">Todos os posts</div>
+  <div class="panel-heading">
+      <div class="row">
+          <div class="col-sm-4">
+              <label for="filtro">Quais tipos de post estou procurando...</label>
+              <input id="filtro" class="form-control"
+                ng-model="filtro"
+                ng-model-options='{ debounce: 500 }'
+                ng-change="atualizarPosts();">
+          </div>
+      </div>
+  </div>
   <div class="panel-body">
     <div ng-repeat="post in posts">
       <div class="row post-item">

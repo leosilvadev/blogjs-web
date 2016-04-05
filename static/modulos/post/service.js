@@ -13,8 +13,9 @@ angular.module('blogjs.post').factory('posts', function($http){
     return $http.get('http://localhost:9000/v1/usuarios/'+usuarioId+'/posts');
   };
 
-  var listarTodos = function(){
-    return $http.get('http://localhost:9000/v1/posts');
+  var listarTodos = function(titulo){
+    var url = titulo ? 'http://localhost:9000/v1/posts?titulo='+titulo : 'http://localhost:9000/v1/posts'
+    return $http.get(url);
   };
 
 
