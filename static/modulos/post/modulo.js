@@ -19,8 +19,17 @@ angular.module('blogjs.post').config(function($routeProvider){
     })
 
     .when('/usuarios/:id/posts/:postId', {
+      controller: 'VisualizacaoUsuarioPostController',
+      templateUrl: 'modulos/post/visualizacao_usuario/view.html'
+    })
+
+    .when('/posts/:postId', {
       controller: 'VisualizacaoPostController',
       templateUrl: 'modulos/post/visualizacao/view.html'
+    })
+
+    .otherwise({
+        redirectTo: '/posts'
     });
 
 });

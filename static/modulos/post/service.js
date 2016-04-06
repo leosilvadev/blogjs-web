@@ -7,11 +7,19 @@ angular.module('blogjs.post').factory('posts', function($http){
 
   var buscarPorUsuario = function(usuarioId, postId){
     return $http.get('http://localhost:9000/v1/usuarios/'+usuarioId+'/posts/'+postId);
+  };
+
+  var buscarPorId = function(postId){
+    return $http.get('http://localhost:9000/v1/posts/'+postId);
   }
 
   var listarPorUsuario = function(usuarioId){
     return $http.get('http://localhost:9000/v1/usuarios/'+usuarioId+'/posts');
   };
+
+  var comentar = function(postId, comentario){
+      return $http.post('http://localhost:9000/v1/posts/'+postId+'/comentarios', comentario);
+  }
 
   var listarTodos = function(titulo, pagina){
     var pagina = pagina || 1;
@@ -56,9 +64,11 @@ angular.module('blogjs.post').factory('posts', function($http){
 
   return {
     registrar:registrar,
+    comentar:comentar,
     listarTodos:listarTodos,
     listarPorUsuario:listarPorUsuario,
-    buscarPorUsuario:buscarPorUsuario
+    buscarPorUsuario:buscarPorUsuario,
+    buscarPorId:buscarPorId
   }
 
 });
