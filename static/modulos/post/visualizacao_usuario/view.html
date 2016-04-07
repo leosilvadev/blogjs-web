@@ -1,7 +1,15 @@
 <div class="panel panel-primary">
-  <div class="panel-heading" ng-bind="post.titulo"></div>
+  <div class="panel-heading">
+      <div>
+          <div ng-bind="post.titulo" ng-hide="estaSendoEditado"></div>
+          <input class="form-control" ng-model="postEditado.titulo" ng-show="estaSendoEditado"></div>
+      </div>
+  </div>
   <div class="panel-body">
-    <div ng-bind="post.conteudo"></div>
+    <div>
+        <div ng-bind="post.conteudo" ng-hide="estaSendoEditado"></div>
+        <textarea class="form-control" ng-model="postEditado.conteudo" ng-show="estaSendoEditado"></textarea>
+    </div>
   </div>
   <div class="panel-footer">
     <div ng-bind="post.dataPostagem | date:'dd/MM/yyyy hh:mm:ss'"></div>
@@ -10,5 +18,8 @@
     <a ng-href="#usuarios/{{post.dono}}/posts" class="btn btn-default">
       Ver outros posts
     </a>
+    <button class="btn btn-info" ng-show="estaSendoEditado" ng-click="cancelarEdicao()">Cancelar Edição</button>
+    <button class="btn btn-primary" ng-show="estaSendoEditado" ng-click="salvarEdicao(postEditado)">Salvar</button>
+    <button class="btn btn-primary" ng-hide="estaSendoEditado" ng-click="habilitarEdicao()">Editar</button>
   </div>
 </div>
