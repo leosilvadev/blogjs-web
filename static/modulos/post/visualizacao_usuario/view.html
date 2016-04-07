@@ -7,8 +7,8 @@
   </div>
   <div class="panel-body">
     <div>
-        <div ng-bind="post.conteudo" ng-hide="estaSendoEditado"></div>
-        <textarea class="form-control" ng-model="postEditado.conteudo" ng-show="estaSendoEditado"></textarea>
+        <div ng-bind-html="post.conteudo" ng-hide="estaSendoEditado"></div>
+        <div text-angular ng-model="postEditado.conteudo" ng-show="estaSendoEditado"></div>
     </div>
   </div>
   <div class="panel-footer">

@@ -1,7 +1,7 @@
 <div class="panel panel-primary">
   <div class="panel-heading" ng-bind="post.titulo"></div>
   <div class="panel-body">
-    <div ng-bind="post.conteudo"></div>
+    <div ng-bind-html="post.conteudo"></div>
   </div>
   <div class="panel-footer">
       <div class="comentarios">

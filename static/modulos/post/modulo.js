@@ -1,4 +1,4 @@
-angular.module('blogjs.post', []);
+angular.module('blogjs.post', ['textAngular', 'ngSanitize']);
 
 angular.module('blogjs.post').config(function($routeProvider){
 
