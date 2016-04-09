@@ -13,5 +13,8 @@
   },
   "dependencies": {
     "express": "^4.13.4"
+  },
+  "scripts": {
+    "postinstall":"./node_modules/bower/bin/bower install"
   }
 }
