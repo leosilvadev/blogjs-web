@@ -10,5 +10,8 @@
   "license": "ISC",
   "devDependencies": {
     "bower": "^1.7.7"
+  },
+  "dependencies": {
+    "express": "^4.13.4"
   }
 }
