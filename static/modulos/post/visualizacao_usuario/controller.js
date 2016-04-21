@@ -4,26 +4,26 @@ angular.module('blogjs.post')
   var carregarPost = function(){
       var usuarioId = $routeParams.id;
       var postId = $routeParams.postId;
-      var promise = posts.buscarPorUsuario(usuarioId, postId);
-      promise.then(function(resultado){
-          $scope.post = resultado.data;
-      });
-      promise.catch(function(erro){
-         alert(erro);
-      });
+      posts.buscarPorUsuario(usuarioId, postId)
+          .then(function(resultado){
+              $scope.post = resultado.data;
+          })
+          .catch(function(erro){
+             alert(erro);
+          });
   }
 
   var salvarEdicao = function(post){
       var usuarioId = $routeParams.id;
       var postId = $routeParams.postId;
-      var promise = posts.atualizar(post, postId, usuarioId);
-      promise.then(function(resultado){
-          $scope.post = resultado.data;
-          cancelarEdicao();
-      });
-      promise.catch(function(erro){
-         alert(erro);
-      });
+      posts.atualizar(post, postId, usuarioId)
+          .then(function(resultado){
+              $scope.post = resultado.data;
+              cancelarEdicao();
+          })
+          .catch(function(erro){
+             alert(erro);
+          });
   }
 
   var habilitarEdicao = function(){
@@ -44,6 +44,8 @@ angular.module('blogjs.post')
   $scope.salvarEdicao = salvarEdicao;
   $scope.postEditado = {};
 
-  carregarPost();
+  $scope.init = function(){
+      carregarPost();
+  }
 
 });

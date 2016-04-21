@@ -4,13 +4,13 @@ angular.module('blogjs.post').controller('RegistroPostController', function($sco
 
   $scope.registrar = function(post){
       var usuarioId = $routeParams.id;
-      var promise = posts.registrar(post, usuarioId);
-      promise.then(function(resultado){
-          $location.path('usuarios/'+usuarioId+'/posts');
-      });
-      promise.catch(function(erro){
-         alert(erro);
-      });
+      posts.registrar(post, usuarioId)
+        .then(function(resultado){
+            $location.path('usuarios/'+usuarioId+'/posts');
+        })
+        .catch(function(erro){
+            alert(erro);
+        });
   };
 
 });

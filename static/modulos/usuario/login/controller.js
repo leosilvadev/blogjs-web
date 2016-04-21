@@ -3,16 +3,16 @@ angular.module('blogjs.usuario').controller('LoginController', function($rootSco
   $scope.usuario = {};
 
   $scope.entrar = function(usuario){
-    var promise = usuarios.autenticar(usuario.login, usuario.senha);
-    promise.then(function(response){
-      var usuarioAutenticado = response.data;
-      localStorage.setItem('usuarioLogado', JSON.stringify(usuarioAutenticado));
-      $rootScope.$broadcast('usuario.entrou', usuarioAutenticado);
-    });
-    promise.catch(function(err){
-      $scope.usuario = {};
-      alert('Dados incorretos!');
-    });
+    usuarios.autenticar(usuario.login, usuario.senha)
+        .then(function(response){
+          var usuarioAutenticado = response.data;
+          localStorage.setItem('usuarioLogado', JSON.stringify(usuarioAutenticado));
+          $rootScope.$broadcast('usuario.entrou', usuarioAutenticado);
+        })
+        .catch(function(err){
+          $scope.usuario = {};
+          alert('Dados incorretos!');
+        });
   }
 
 });

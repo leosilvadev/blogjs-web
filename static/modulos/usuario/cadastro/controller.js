@@ -5,13 +5,13 @@ angular.module('blogjs.usuario').controller('CadastroUsuarioController', functio
 
   $scope.cadastrar = function(usuario){
     if (valido(usuario)) {
-      var promise = usuarios.cadastrar(usuario);
-      promise.then(function(resultado){
-        $location.path('login');
-      });
-      promise.catch(function(err){
-        alert('Nao foi possivel registrar!');
-      });
+      usuarios.cadastrar(usuario)
+        .then(function(resultado){
+            $location.path('login');
+        })
+        .catch(function(err){
+            alert('Nao foi possivel registrar!');
+        });
     } else {
       alert('Dados invalidos!');
     }

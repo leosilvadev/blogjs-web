@@ -16,14 +16,11 @@ angular.module('blogjs').controller('MenuController', function($scope, $location
   }
 
   $scope.$on('usuario.entrou', function(evento, usuario){
-    console.log('Recebendo evento: usuario entrou, ');
-    console.log(usuario);
     $scope.usuarioLogado = usuario;
     $location.path('usuarios/'+usuario._id+'/posts');
   });
 
   $scope.$on('usuario.saiu', function(evento, usuario){
-    console.log('Recebendo evento: usuario saiu, '+usuario);
     sair(usuario);
   });
 

@@ -1,17 +1,17 @@
 angular.module('blogjs.post').controller('PesquisaPostController', function($scope, posts, $routeParams, $location, usuarios){
 
   var carregarPosts = function(pagina){
-    var promise = posts.listarTodos($scope.filtro, pagina);
-    promise.then(function(resultado){
-        var data = resultado.data;
-        $scope.totalPosts = parseInt(data.total);
-        $scope.paginaAtual = parseInt(data.page);
-        $scope.totalPaginas = parseInt(data.pages);
-        $scope.posts = data.docs;
-    });
-    promise.catch(function(err){
-        alert(err);
-    });
+    posts.listarTodos($scope.filtro, pagina)
+        .then(function(resultado){
+            var data = resultado.data;
+            $scope.totalPosts = parseInt(data.total);
+            $scope.paginaAtual = parseInt(data.page);
+            $scope.totalPaginas = parseInt(data.pages);
+            $scope.posts = data.docs;
+        })
+        .catch(function(err){
+            alert(err);
+        });
   }
 
   $scope.montarPaginas = function(paginas){
@@ -28,6 +28,8 @@ angular.module('blogjs.post').controller('PesquisaPostController', function($sco
       }
   }
 
-  carregarPosts();
+  $scope.init = function(){
+      carregarPosts();
+  }
 
 });

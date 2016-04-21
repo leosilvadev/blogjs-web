@@ -1,7 +1,7 @@
-
-angular.module('blogjs.usuario', []);
-
-angular.module('blogjs.usuario').config(function($routeProvider){
+var dependencias = [];
+angular
+    .module('blogjs.usuario', dependencias)
+    .config(function($routeProvider){
 
   $routeProvider
     .when('/usuario/cadastro', {
